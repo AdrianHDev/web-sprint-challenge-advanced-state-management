@@ -1,8 +1,31 @@
 
 export const initialState = {
+    smurfs: [],
+    isLoading: true,
+    error: ""
 }
 
-const reducer = ()=>{
+const reducer = ( state = initialState, action ) => {
+    console.log('Reducer is @', action.type + ',' (action.payload ? 'with: ' : ''), action.payload)
+    switch(action.type) {
+        case FETCH_START:
+            break
+        case FETCH_SUCCESS:
+            break
+        case FETCH_FAILED:
+            break
+        case ADD_SMURF:
+            return {
+                ...state,
+                smurfs = [...state.smurfs, action.payload]
+            }
+        case ADD_ERROR:
+            return {
+                ...state,
+                error = action.payload
+            }
+    }
+
 }
 
 export default reducer;
